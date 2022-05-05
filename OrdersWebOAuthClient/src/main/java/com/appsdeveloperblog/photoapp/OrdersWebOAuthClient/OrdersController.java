@@ -8,6 +8,8 @@ package com.appsdeveloperblog.photoapp.OrdersWebOAuthClient;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class OrdersController {
 
 	@GetMapping("/orders")
-	public String getOrders(Model model) {
+	public String getOrders(Model model,
+									@RegisteredOAuth2AuthorizedClient("users-client-oidc") OAuth2AuthorizedClient authorizedClient) {
+		
+		String jwtAccessToken = authorizedClient.getAccessToken().getTokenValue();
 
 		List<Order> orders = new ArrayList<Order>();
 		model.addAttribute("orders", orders);
