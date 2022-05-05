@@ -1,0 +1,30 @@
+server:
+  port: 0
+# Port 0, causes the application instances to run on random port numbers. A hard-coded port number such as 8081 does not allow several instances to run.
+#  port: 8081
+
+#Keycloak URI
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:8080/auth/realms/appsdeveloperblog
+
+# The following uri can also be used
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/certs
+  application:
+    name: demo-resource-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka
+  instance:
+    instance-id: ${spring.application.name}:${instanceId:${random.value}}
+# instance-id, enables each running instance to be shown in Eureka

@@ -1,0 +1,14 @@
+# allowedOrigins: "http://localhost:8181" to specify a specific url and allowedMethods can also be "*" to specify all HTTP methods
+# allowedHeaders can be set to "*"
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+            allowedHeaders:
+              - Authorization

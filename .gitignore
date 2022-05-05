@@ -1,0 +1,5 @@
+keycloak-12.0.4/
+.mvn/*
+mvnw
+mvnw.cmd
+
