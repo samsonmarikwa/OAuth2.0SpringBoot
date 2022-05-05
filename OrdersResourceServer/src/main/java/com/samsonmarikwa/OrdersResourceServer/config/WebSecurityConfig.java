@@ -6,14 +6,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
-@EnableWebSecurity
+//@EnableWebSecurity
 public class WebSecurityConfig {
    
-   @Bean
+//   @Bean
    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
       // Make communication stateless to ensure previous communication cookies are not remembered.
       // This ensures the JSESSION cookie is not remembered to avoid subsequent access to resources without JWT
-      http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//      http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
       
       // Configure antMatchers if needed
       http.authorizeRequests()

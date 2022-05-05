@@ -62,7 +62,7 @@ public class AuthorizationServerConfiguration {
    @Bean
    public ProviderSettings providerSettings() {
       return ProviderSettings.builder()
-            .issuer("http://localhost:8000") // 8000 is the port of this Authorization server (see application.properties)
+            .issuer("http://auth-server:8000") // 8000 is the port of this Authorization server (see application.properties)
             .build();
    }
    
